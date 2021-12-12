@@ -48,6 +48,23 @@ body {
   border: 1px solid transparent;
 }
 
+.button-style {
+  min-width: 200px;
+  height: 50px;
+
+  font-family: roboto, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--primery-white-color);
+
+  background-color: var(--accent-color);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
 /* Убираем стили у списков и ссылок */
 .list {
   padding: 0;
@@ -84,6 +101,12 @@ body {
 /* Одинаковые стили для акцентов */
 .accent {
   color: var(--accent-color);
+}
+
+/* textarea */
+textarea {
+  resize: none;
+  outline: none;
 }
 
 /* ==================Стили для страницы Студия================== */
@@ -248,23 +271,7 @@ body {
   color: var(--primery-white-color);
 }
 
-.hero-button {
-  min-width: 200px;
-  height: 50px;
-
-  font-family: roboto, sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--primery-white-color);
-
-  background-color: var(--accent-color);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-
-  cursor: pointer;
-}
-
+/* ===Модалка нашего героя=== */
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
@@ -295,6 +302,7 @@ body {
   left: 50%;
   width: 528px;
   height: 581px;
+  padding: 40px;
 
   background-color: var(--primery-white-color);
   border-radius: 4px;
@@ -303,19 +311,105 @@ body {
   transition: transform 250ms var(--our-timing-effect);
 }
 
-.backdrop .button {
+.backdrop .button-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 30px;
   height: 30px;
-  margin-left: auto;
 
   background-color: var(--primery-white-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 
   cursor: pointer;
+}
+
+.hero-form .form-title {
+  margin: 0 0 12px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+}
+
+.hero-form .form-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-form input {
+  margin-bottom: 10px;
+  padding: 11px 12px;
+  width: 100%;
+  height: 40px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  outline: none;
+}
+
+.hero-form input:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.hero-form label {
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--secondary-text-color);
+}
+
+.hero-form textarea {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  height: 120px;
+  width: 100%;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.hero-form textarea:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.hero-form textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.hero-form .checkbox {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.hero-form .input-checkbox {
+  margin: 0;
+  margin-right: 8px;
+  width: 16px;
+  height: 15px;
+}
+
+.hero-form .label-checkbox {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+}
+
+.hero-form .link-checkbox {
+  color: var(--accent-color);
 }
 
 /* ==== Преимущества компании ==== */
@@ -659,6 +753,56 @@ body {
 .joinus .link:hover,
 .joinus .link:focus {
   background-color: var(--accent-color);
+}
+
+/* Подпишитесь на рассылку */
+.subscription {
+  margin-top: 12px;
+  margin-left: auto;
+}
+
+.subscription-title {
+  margin: 0 0 20px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--primery-white-color);
+}
+
+.subscription-form .form-field {
+  display: inline-flex;
+}
+
+.subscription-form input {
+  margin-right: 12px;
+  width: 358px;
+  height: 50px;
+  padding: 15px 16px;
+
+  color: var(--primery-white-color);
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: var(--primery-black-color);
+  border-radius: 4px;
+
+  outline: none;
+}
+
+.subscription-form input:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.subscription-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
 }
 
 /* ===================Стили для страницы Портфолио=============== */
