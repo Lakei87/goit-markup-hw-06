@@ -106,7 +106,6 @@ body {
 /* textarea */
 textarea {
   resize: none;
-  outline: none;
 }
 
 /* ==================Стили для страницы Студия================== */
@@ -325,11 +324,18 @@ textarea {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 
+  transition: fill 250ms var(--our-timing-effect);
+
   cursor: pointer;
 }
 
+.backdrop .button-close:hover {
+  fill: var(--accent-color);
+}
+
 .hero-form .form-title {
-  margin: 0 0 12px;
+  margin-top: 0;
+  margin-bottom: 12px;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
@@ -337,28 +343,34 @@ textarea {
 }
 
 .hero-form .form-field {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 10px;
 }
 
-.hero-form input {
-  margin-bottom: 10px;
-  padding: 11px 12px;
+.hero-form .input {
+  padding-left: 42px;
   width: 100%;
   height: 40px;
 
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  outline: 1px solid transparent;
 
-  outline: none;
+  transition: outline 250ms var(--our-timing-effect);
 }
 
-.hero-form input:focus {
-  border: 1px solid var(--accent-color);
+.hero-form .input:focus {
+  outline: 1px solid var(--accent-color);
 }
 
-.hero-form label {
+.hero-form .label {
   margin-bottom: 4px;
   font-size: 12px;
   line-height: 1.17;
@@ -366,18 +378,38 @@ textarea {
   color: var(--secondary-text-color);
 }
 
-.hero-form textarea {
+.hero-form .icon {
+  position: absolute;
+  bottom: 11px;
+  left: 12px;
+
+  transition: fill 250ms var(--our-timing-effect);
+}
+
+.hero-form .form-field:focus-within .icon {
+  fill: var(--accent-color);
+}
+
+.hero-form .comments {
   margin-bottom: 20px;
+}
+
+.hero-form textarea {
   padding: 12px 16px;
   height: 120px;
   width: 100%;
 
+  font-size: 14px;
+
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  outline: 1px solid transparent;
+
+  transition: outline 250ms var(--our-timing-effect);
 }
 
 .hero-form textarea:focus {
-  border: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
 }
 
 .hero-form textarea::placeholder {
@@ -387,28 +419,53 @@ textarea {
   color: rgba(117, 117, 117, 0.5);
 }
 
-.hero-form .checkbox {
-  flex-direction: row;
-  justify-content: center;
+.checkbox-field {
+  display: inline-flex;
+  flex-direction: row-reverse;
   align-items: center;
   margin-bottom: 30px;
 }
 
-.hero-form .input-checkbox {
-  margin: 0;
-  margin-right: 8px;
-  width: 16px;
-  height: 15px;
+.checkbox-field input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-.hero-form .label-checkbox {
+.checkbox-field .icon-check {
+  margin-right: 7px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--primary-text-color);
+  border-radius: 4px;
+  background-origin: border-box;
+  background-size: contain;
+
+  transition: background-image 250ms var(--our-timing-effect),
+    border 250ms var(--our-timing-effect),
+    background-color 250ms var(--our-timing-effect);
+}
+
+.checkbox-field input:checked ~ .icon-check {
+  background-image: url(../images/icon-check.svg);
+  border: 2px solid transparent;
+  background-color: var(--accent-color);
+}
+
+.checkbox-field .label {
   margin: 0;
   font-size: 14px;
   line-height: 1.7;
   letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
 }
 
-.hero-form .link-checkbox {
+.checkbox-field .link {
   color: var(--accent-color);
 }
 
@@ -790,12 +847,13 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.3);
   background-color: var(--primery-black-color);
   border-radius: 4px;
+  outline: 1px solid transparent;
 
-  outline: none;
+  transition: outline 250ms var(--our-timing-effect);
 }
 
 .subscription-form input:focus {
-  border: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
 }
 
 .subscription-form input::placeholder {
@@ -803,6 +861,22 @@ textarea {
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0.03em;
+}
+
+.subscription-form button {
+  position: relative;
+  padding-left: 29px;
+  padding-right: 62px;
+}
+
+.subscription-form .icon {
+  position: absolute;
+  top: 50%;
+  right: 28px;
+
+  fill: var(--primery-white-color);
+
+  transform: translateY(-50%);
 }
 
 /* ===================Стили для страницы Портфолио=============== */
